@@ -1,0 +1,222 @@
+@import url(https://fonts.googleapis.com/css?family=Work+Sans:400,300,700|Open+Sans:400italic,300italic);
+
+body {
+    margin: 0;
+}
+.preloader {
+  /*фиксированное позиционирование*/
+  position: fixed;
+  /* координаты положения */
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  /* фоновый цвет элемента */
+  background: url(world1.jpg);
+  background-size: cover;
+  /* размещаем блок над всеми элементами на странице (это значение должно быть больше, чем у любого другого позиционированного элемента на странице) */
+  z-index: 1001;
+}
+.preloader__row {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  width: 70px;
+  height: 70px;
+  margin-top: -35px;
+  margin-left: -35px;
+  text-align: center;
+  animation: preloader-rotate 2s infinite linear;
+}
+.preloader__item {
+  position: absolute;
+  display: inline-block;
+  top: 0;
+  background-color:#ff9f1a;
+  border-radius: 100%;
+  width: 35px;
+  height: 35px;
+  animation: preloader-bounce 2s infinite ease-in-out;
+}
+.preloader__item:last-child {
+  top: auto;
+  bottom: 0;
+  animation-delay: -7s;
+}
+@keyframes preloader-rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes preloader-bounce {
+
+  0%,
+  100% {
+    transform: scale(0);
+  }
+
+  50% {
+    transform: scale(1);
+  }
+}
+.loaded_hiding .preloader {
+  transition: 0.3s opacity;
+  opacity: 0;
+}
+.loaded .preloader {
+  display: none;
+}
+.photo {
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 570px;
+  width: 510px;
+  margin-left: 20px;
+  margin-top: 100px;
+  background: linear-gradient(180deg,  rgb(20 47 88 / 0%) 0%, #fff 100%), url(bg-me.png);
+}
+.navbar {
+  display: flex;
+  justify-content:space-around;
+  position: fixed;
+  width: 100%; 
+  height: 100px;   
+  z-index: 5;
+  margin: 0;
+  left: 0;
+  top: 0;
+  background-color: #ff9f1a;
+}
+.open,
+.close {
+  display: inline-block;
+  padding: 10px 0 0 10px;
+  cursor: pointer;
+  font-size: 1.8rem;
+  color: rgb(104, 101, 101);
+  text-decoration: none;
+  transition: 0.5s;
+  font-family: 'Bellefair', serif;
+}
+.close {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 100px;
+}
+.close:hover {
+  color: rgb(22, 21, 21);
+}
+.overlay {
+  position: fixed;
+  width: 0;
+  top: 0;
+  background-color: #333;
+  opacity: 0.7;
+  overflow-x: hidden;
+  height: 100%;
+  transition: 0.5s;
+}
+.overlay-content {
+  text-align: center;
+  position: relative;
+  width: 100%;
+  padding-top: 50px;
+  margin-top: 30px;
+}
+.overlay-content a {
+  font-size: 2rem;
+  color: #fff;
+  display: block;
+  padding: 10px;
+  margin-bottom: 4px;
+  text-decoration: none;
+  transition: 0.3s;
+  position: relative;
+}
+.overlay-content a:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0%;
+  transform: translateX(-50%);
+  height: 3px;
+  background: #fff;
+  transition: 0.3s;
+  display: block;
+}
+.overlay-content a:hover {
+  color: #ff9f1a;
+}
+.overlay-content a:hover:after {
+  width: 25%;
+}
+.container {
+  display: flex;
+}
+.main-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+}
+.noise {
+    z-index: 100;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: .15;
+}
+.vignette{
+    position:absolute;
+    width:100%; height:100%;
+    box-shadow:inset 0px 0px 150px 20px black;
+    mix-blend-mode: multiply;
+    -webkit-animation: vignette-anim 3s infinite; /* Safari 4+ */
+    -moz-animation:    vignette-anim 3s infinite; /* Fx 5+ */
+    -o-animation:      vignette-anim 3s infinite; /* Opera 12+ */
+    animation:         vignette-anim 3s infinite; /* IE 10+, Fx 29+ */
+}
+.titleCont{position:relative;}
+.main-title {    
+      font-weight: 400;
+      font-size: 40px;
+      color: #484848;
+      font-family: 'Bellefair', serif;
+      position:relative;
+      line-height:1.3;
+  }
+.overTitle{
+    position:absolute;
+    top:0;
+    left:0;
+}
+.dot{
+    width:3px;
+    height:2px;
+    background-color:rgb(249, 246, 246);
+    position:absolute;
+    opacity:0.3;
+}
+  @-webkit-keyframes vignette-anim {
+    0%   , 100%{ opacity: 1; }
+    50% { opacity: 0.2; }
+  }
+  @-moz-keyframes vignette-anim {
+    0%   , 100%{ opacity: 1; }
+    50% { opacity: 0.7; }
+  }
+  @-o-keyframes vignette-anim {
+    0%   , 100%{ opacity: 1; }
+    50% { opacity: 0.7; }
+  }
+  @keyframes vignette-anim {
+    0%   , 100%{ opacity: 1; }
+    50% { opacity: 0.7; }
+  }
